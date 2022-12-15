@@ -20,7 +20,7 @@ class PenerbitController extends Controller
 
     public function tampil() {
         $penerbit = Penerbit::all();
-        $buku = Buku::all();
+        $buku = Buku::get();
         return view('beranda', ['penerbit' => $penerbit, 'buku' => $buku]);
 
     }

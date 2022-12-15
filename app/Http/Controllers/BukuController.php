@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Buku;
 use App\Models\Penerbit;
 
@@ -16,6 +17,7 @@ class BukuController extends Controller
             'tahun_terbit' => 'required',
             'penerbit_id' => 'required'
         ]);
+        $bukuBaru['id'] = "BK" . strval(random_int(00001, 99999));
         Buku::create($bukuBaru);
         return redirect('/');
     }
@@ -43,5 +45,7 @@ class BukuController extends Controller
     public function editTampil($id) {
         $buku = Buku::find($id);
         return view('editBuku', ['buku' => $buku, 'penerbit' => Penerbit::all()]);
+        // $buku = Buku::where('id', $id);
+        // return $buku;
     }
 }

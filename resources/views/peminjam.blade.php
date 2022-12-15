@@ -60,6 +60,9 @@
         </table>
         <button type="submit">Simpan</button>
     </form>
+    <br>
+    <a href="/peminjam?bukupinjaman=1"><h4>Buku yang telah dipinjam</h4></a>
+    
 
     
     <a href="/"><h3>Back to home</h3></a>

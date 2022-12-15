@@ -9,12 +9,14 @@ use App\Models\Buku;
 class PeminjamController extends Controller
 {
     //
-    public function tampil(){
+    public function tampil(Request $request){
         $peminjam = Peminjam::all();
         $buku = Buku::all();
+        if ($request->query('bukupinjaman') == '1') {
+            return view('listBukuPinjam', ['peminjam'=> $peminjam]);
+        }        
+
         return view('peminjam', ['peminjam' => $peminjam, 'buku'=>$buku]);
-        // $peminjam = Peminjam::find(2);
-        // return $peminjam->buku;
     }
 
     public function simpan(Request $request) {
@@ -27,7 +29,6 @@ class PeminjamController extends Controller
         $peminjam = Peminjam::create($peminjamBaru);
         $updateBuku = Buku::find($peminjamBaru['buku_id']);
         $updateBuku->update(['peminjam_id' => $peminjam['id']]);
-
         return redirect('/peminjam');
     }
 
@@ -39,4 +40,5 @@ class PeminjamController extends Controller
         return redirect('/peminjam');
         
     }
+
 }

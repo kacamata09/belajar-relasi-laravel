@@ -47,7 +47,7 @@
 
     <table border="1">
         <tr>
-            <td>Nomor Buku</td>
+            <td>Id Buku</td>
             <td>Nama Buku</td>
             <td>Tahun Terbit</td>
             <td>Stok</td>
@@ -84,12 +84,15 @@
                 <td><input type="text" name="nama_buku"></td>
             </tr>
             <tr>
-                <td>Nomor Penerbit</td>
+                <td>Penerbit</td>
 
                 <td>
-                    @foreach ($penerbit as $p)
-                    <input type="radio" name="penerbit_id" value="{{ $p['id'] }}"> <span>{{ $p['nama_penerbit'] }}</span>
-                    @endforeach
+                    <select name="penerbit_id">
+                        @foreach ($penerbit as $p)
+                        <option value="{{ $p['id'] }}">{{ $p['nama_penerbit'] }}</option>
+
+                        @endforeach
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -104,7 +107,6 @@
         <button type="submit">Simpan</button>
     </form>
     
-
     
 </body>
 </html>
