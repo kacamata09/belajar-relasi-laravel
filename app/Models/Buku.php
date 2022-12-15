@@ -11,7 +11,7 @@ class Buku extends Model
 
     protected $primaryKey = 'id';
     public $incrementing = false;
-    
+
     protected $fillable = [
         'id',
         'nama_buku',
@@ -26,5 +26,9 @@ class Buku extends Model
     
     public function peminjam() {
         return $this->belongsTo(Peminjam::class);
+    }
+
+    public function petugas() {
+        return $this->belongsTo(Petugas::class);
     }
 }

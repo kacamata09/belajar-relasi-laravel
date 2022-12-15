@@ -45,7 +45,5 @@ class BukuController extends Controller
     public function editTampil($id) {
         $buku = Buku::find($id);
         return view('editBuku', ['buku' => $buku, 'penerbit' => Penerbit::all()]);
-        // $buku = Buku::where('id', $id);
-        // return $buku;
     }
 }
