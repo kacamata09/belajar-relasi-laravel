@@ -52,6 +52,7 @@
             <td>Tahun Terbit</td>
             <td>Stok</td>
             <td>Penerbit</td>
+            <td>Peminjam</td>
             <td>Aksi</td>
         </tr>
         @foreach ($buku as $b)
@@ -61,6 +62,11 @@
             <td>{{ $b['tahun_terbit'] }}</td>    
             <td>{{ $b['stok'] }}</td>    
             <td>{{ $b->penerbit->nama_penerbit }}</td>    
+            @if ($b['peminjam_id']== null)
+            <td>Belum dipinjam</td>  
+            @else 
+            <td>{{ $b->peminjam->nama_peminjam }}</td>    
+            @endif
             <td><a href="/buku/hapus/{{ $b['id'] }}">Hapus</a> 
                 <a href="/buku/edit/{{ $b['id'] }}">Edit</a></td>    
                 </tr>

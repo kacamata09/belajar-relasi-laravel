@@ -16,6 +16,7 @@
             <td>Nama Peminjam</td>
             <td>Alamat</td>
             <td>Buku Pinjaman</td>
+            <td>Aksi</td>
         </tr>
         @foreach ($peminjam as $p)
         <tr>
@@ -23,6 +24,7 @@
             <td>{{ $p['nama_peminjam'] }}</td>
             <td>{{ $p['alamat'] }}</td>    
             <td>{{ $p->buku->nama_buku }}</td>    
+            <td><a href="/peminjam/kembalikan/{{ $p['id'] }}">Kembalikan Buku</a></td>    
         @endforeach
     </table>
     
@@ -47,7 +49,7 @@
                     <select name="buku_id">
                         @foreach ($buku as $b)
 
-                        @if (!$b['id'])
+                        @if ($b['peminjam_id'] == null)
                         <option value="{{ $b['id'] }}">{{ $b['nama_buku'] }}</option>
                         @endif
 

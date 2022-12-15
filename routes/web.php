@@ -26,3 +26,4 @@ Route::post('/buku/edit/{id}', [BukuController::class, 'edit']);
 
 Route::get('/peminjam', [PeminjamController::class, 'tampil']);
 Route::post('/peminjam', [PeminjamController::class, 'simpan']);
+Route::get('/peminjam/kembalikan/{id}', [PeminjamController::class, 'kembalikan']);

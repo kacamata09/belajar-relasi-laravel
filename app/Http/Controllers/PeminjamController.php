@@ -30,4 +30,13 @@ class PeminjamController extends Controller
 
         return redirect('/peminjam');
     }
+
+    public function kembalikan(Request $request, $id) {
+        $userPinjam = Peminjam::find($id);
+        $bukuPinjaman = Buku::find($userPinjam['buku_id']);
+        $bukuPinjaman->update(['peminjam_id' => null]);
+        $userPinjam->delete();
+        return redirect('/peminjam');
+        
+    }
 }
