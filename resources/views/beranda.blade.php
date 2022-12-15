@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Toko Buku</title>
-</head>
-<body>
+@extends('snippets.main')
 
-    <a href="/logout">Logout</a>
+@section('konten')
+<a href="/logout">Logout</a>
     <a href="/petugas"><h3>Form petugas</h3></a>
     <a href="/peminjam"><h3>Form Pinjaman Buku</h3></a>
     <h1>Penerbit Buku</h1>
@@ -108,7 +101,7 @@
         </table>
         <button type="submit">Simpan</button>
     </form>
+        
+@endsection
     
     
-</body>
-</html>
