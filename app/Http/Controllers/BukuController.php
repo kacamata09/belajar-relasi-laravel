@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Buku;
 use App\Models\Penerbit;
+use Illuminate\Support\Facades\Auth;
+
 
 class BukuController extends Controller
 {
@@ -18,6 +20,7 @@ class BukuController extends Controller
             'penerbit_id' => 'required'
         ]);
         $bukuBaru['id'] = "BK" . strval(random_int(00001, 99999));
+        $bukuBaru['petugas_id'] = Auth::user()->petugas_id;
         Buku::create($bukuBaru);
         return redirect('/');
     }

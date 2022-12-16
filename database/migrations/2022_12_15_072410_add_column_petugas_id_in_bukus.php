@@ -14,7 +14,7 @@ class AddColumnPetugasIdInBukus extends Migration
     public function up()
     {
         Schema::table('bukus', function (Blueprint $table) {
-            $table->integer('petugas_id')->references('id')->on('petugas')->nullable();;
+            $table->string('petugas_id')->references('id')->on('petugas')->nullable()->after('stok');
         });
     }
 

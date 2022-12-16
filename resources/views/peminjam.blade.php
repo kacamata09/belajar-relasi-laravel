@@ -76,7 +76,7 @@
                     <option value="{{ $b['id'] }}">{{ $b['nama_buku'] }}</option>
                     
                     @else
-                    <option disabled="{{ $b['id'] }}">{{ $b['nama_buku'] }} (sudah dipinjam)</option>
+                    <option disabled="disabled">{{ $b['nama_buku'] }} (sudah dipinjam)</option>
 
                     @endif
 

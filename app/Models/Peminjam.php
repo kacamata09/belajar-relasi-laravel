@@ -13,9 +13,14 @@ class Peminjam extends Model
         'nama_peminjam',
         'alamat',
         'buku_id',
+        'petugas_id',
     ];
 
     public function buku() {
         return $this->hasOne(Buku::class);
+    }
+    
+    public function petugas() {
+        return $this->belongsTo(Petugas::class);
     }
 }

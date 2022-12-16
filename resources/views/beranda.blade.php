@@ -195,10 +195,6 @@
 
 </section>
 
-<a href="/logout">Logout</a>
-    <a href="/petugas"><h3>Form petugas</h3></a>
-    <a href="/peminjam"><h3>Form Pinjaman Buku</h3></a>
-    
         
 @endsection
     

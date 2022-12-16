@@ -31,10 +31,11 @@
                         <tr>
                             <td>{{ $p['id'] }}</td>
                             <td>{{ $p['nama_petugas'] }}</td>
-                            @if (sizeOf($p->bukus) > 0)
+                            @if (sizeOf($p->peminjams) > 0)
                             <td>
-                            @foreach ($p->bukus as $buku)
-                            <li>{{ $buku->nama_buku }}</li>
+                            @foreach ($p->peminjams as $peminjam)
+                            <li>{{ $peminjam->buku->nama_buku }} dipinjam {{ $peminjam->nama_peminjam }}</li>
+                            <br>
                             @endforeach
                             </td>
                             @else
@@ -73,9 +74,22 @@
             <form action="/petugas" method="POST">
                 @csrf
                 <div class="form-group">
-                  <label for="petugasinput">Nama Petugas</label>
-                  <input type="text" class="form-control" id="petugasinput" name="nama_petugas" placeholder="Masukkan Nama Petugas">
-            
+                  <label>Pilih User</label>
+                  <select name="nama_petugas" class="form-control select2" style="width: 100%;">
+                    @foreach ($users as $u)
+                    
+                    @if ($u['petugas_id'] == null)
+                    <option value="{{ $u['name'] }}">{{ $u['name'] }}</option>
+                    
+                    @else
+                    <option disabled="disabled">{{ $u['name'] }} (Sudah jadi Petugas)</option>
+
+                    @endif
+
+                    @endforeach
+                   
+                  </select>
+
                 </div>
                 
             </div>

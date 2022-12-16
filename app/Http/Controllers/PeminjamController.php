@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peminjam;
 use App\Models\Buku;
+use Illuminate\Support\Facades\Auth;
+
 
 class PeminjamController extends Controller
 {
@@ -25,6 +27,10 @@ class PeminjamController extends Controller
             'alamat' => 'required',
             'buku_id' => 'required',
         ]);
+
+        $petugas_id = Auth::user()->petugas_id;
+
+        $peminjamBaru['petugas_id'] = $petugas_id;
 
         $peminjam = Peminjam::create($peminjamBaru);
         $updateBuku = Buku::find($peminjamBaru['buku_id']);
