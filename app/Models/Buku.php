@@ -18,6 +18,7 @@ class Buku extends Model
         'tahun_terbit',
         'penerbit_id',
         'peminjam_id',
+        'petugas_id',
         'stok'
     ];
     public function penerbit() {

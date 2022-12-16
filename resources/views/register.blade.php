@@ -1,37 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('snippets.layoutInput')
+
+@section('input')
     
-
+<div class="card-body login-card-body">
+    <p class="login-box-msg">Silahkan masukkan Data Anda</p>
+  
     <form action="/register" method="post">
-        @csrf
-        <table>
-            <tr>
-                <td>Nama</td>
-                <td><input type="text" name="name"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" name="email"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td>Konfirmasi Password</td>
-                <td><input type="password" name="password_confirmation"></td>
-            </tr>
-        </table>
-        <button type="submit">Simpan</button>
+      @csrf
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="name" placeholder="Nama Lengkap">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" name="email" placeholder="Email">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Password">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+        <!-- /.col -->
+      </div>
     </form>
+  
+  
 
-
-</body>
-</html>
+    <p class="mb-0">
+      <a href="/login" class="text-center">Login</a>
+    </p>
+  </div>
+  <!-- /.login-card-body -->
+@endsection

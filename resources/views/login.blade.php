@@ -46,7 +46,7 @@
     <a href="/lupapassword">I forgot my password</a>
   </p>
   <p class="mb-0">
-    <a href="/regiter" class="text-center">Register</a>
+    <a href="/register" class="text-center">Register</a>
   </p>
 </div>
 <!-- /.login-card-body -->

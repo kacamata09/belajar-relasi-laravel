@@ -17,7 +17,7 @@ class CreatePeminjamsTable extends Migration
             $table->id();
             $table->string('nama_peminjam');
             $table->string('alamat');
-            $table->integer('buku_id')->references('id')->on('bukus')->nullable();
+            $table->string('buku_id')->references('id')->on('bukus')->nullable();
             // $table->integer('kelas_id')->references('id')->on('bukus')->nullable();
             $table->timestamps();
         });

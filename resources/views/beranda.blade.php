@@ -113,7 +113,7 @@
                     </thead>
                     <tbody>
                         @foreach ($buku as $b)
-                        <tr>
+                        <tr>ara
                             <td>{{ $b['id'] }}</td>
                             <td>{{ $b['nama_buku'] }}</td>
                             <td>{{ $b['tahun_terbit'] }}</td>    

@@ -17,6 +17,11 @@ class UserController extends Controller
             'password' => 'required|confirmed'
         ]);
 
+        $user = User::where('email', $dataUser['email'])->first();
+        if ($user) {
+            return 'email yang anda masukkan sudah didaftarkan';
+        }
+
         $dataUser['password'] = bcrypt($dataUser['password']);
 
         User::create($dataUser);

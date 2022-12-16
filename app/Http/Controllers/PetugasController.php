@@ -19,6 +19,9 @@ class PetugasController extends Controller
     public function tampil(Request $request) {
         $petugas = Petugas::all();
         return view('petugas', ['petugas'=>$petugas]);
+        // $petugas = Petugas::find(1);
+        // return $petugas->bukus;
+
     }
 
     public function hapus($id) {
