@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Petugas;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class PetugasController extends Controller
 {
@@ -22,6 +24,10 @@ class PetugasController extends Controller
     }
 
     public function tampil(Request $request) {
+        if (Auth::user()->jabatan != 'petugas tertinggi') {
+            return 'anda tidak bisa mengakses';
+        };
+
         $user = User::all();
         $petugas = Petugas::all();
         return view('petugas', ['petugas'=>$petugas, 'users'=>$user]);

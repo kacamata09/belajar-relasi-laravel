@@ -21,7 +21,7 @@ class UserController extends Controller
         if ($user) {
             return 'email yang anda masukkan sudah didaftarkan';
         }
-
+        $dataUser['jabatan'] = 'petugas biasa';
         $dataUser['password'] = bcrypt($dataUser['password']);
 
         User::create($dataUser);

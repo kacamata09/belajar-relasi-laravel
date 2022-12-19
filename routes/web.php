@@ -21,7 +21,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [PenerbitController::class, 'tampil'])->middleware('auth');
 
-Route::get('/login', [UserController::class, 'tampillogin'])->name('login');
+Route::get('/login', [UserController::class, 'tampillogin'])->name('login')->middleware('guest');
 Route::get('/logout', [UserController::class, 'logout']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/register', [UserController::class, 'tampilregister']);
