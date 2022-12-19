@@ -16,6 +16,7 @@ class Petugas extends Model
         'id',
         'nama_petugas',
         'user_id',
+        'status',
     ];
 
     public function bukus() {
@@ -27,6 +28,6 @@ class Petugas extends Model
     }
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 }

@@ -5,17 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Petugas;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class PetugasController extends Controller
 {
     public function simpan(Request $request) {
-        $petugasBaru = $request->validate([
-            'nama_petugas' => 'required',
-        ]);
-        $user = User::find(Auth::user()->id);
+        $user = User::find($request->id);
+        $petugasBaru['nama_petugas'] = $user['name'];
         $petugasBaru['id'] = 'PTG' . random_int(00001, 99999);
-        $petugasBaru['user_id'] = Auth::user()->id;
+        $petugasBaru['user_id'] = $request->id;
+        $petugasBaru['status']  = 'aktif';
 
         $user->update(['petugas_id'=> $petugasBaru['id']]);
 
@@ -33,9 +31,15 @@ class PetugasController extends Controller
     }
 
 
+
     public function hapus($id) {
         $hapusPetugas = Petugas::find($id);
-        $hapusPetugas->delete();
+        if ($hapusPetugas['status'] == 'nonaktif') {
+            $hapusPetugas->update(['status'=>'aktif']);
+        } else {
+            $hapusPetugas->update(['status'=>'nonaktif']);
+        }
+
         return redirect('/petugas');
     }
 

@@ -43,7 +43,8 @@ Route::middleware('auth')->prefix('peminjam')->group(function () {
 Route::middleware('auth')->prefix('petugas')->group(function () {
     Route::get('/', [PetugasController::class, 'tampil']);
     Route::post('/', [PetugasController::class, 'simpan']);
-    Route::get('//edit/{id}', [PetugasController::class, 'edit']);
+    Route::get('/edit/{id}', [PetugasController::class, 'edit']);
+    Route::post('/edit/{id}', [PetugasController::class, 'tampilEdit']);
     Route::get('/hapus/{id}', [PetugasController::class, 'hapus']);
 });
 

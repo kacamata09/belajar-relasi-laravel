@@ -44,6 +44,6 @@ class User extends Authenticatable
     ];
 
     public function petugas() {
-        return $this->hasOne(Petugas::class);
+        return $this->belongsTo(Petugas::class);
     }
 }

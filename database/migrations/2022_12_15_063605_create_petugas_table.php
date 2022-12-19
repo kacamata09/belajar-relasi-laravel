@@ -16,7 +16,8 @@ class CreatePetugasTable extends Migration
         Schema::create('petugas', function (Blueprint $table) {
             $table->string('id', 10);
             $table->string('nama_petugas');
-            $table->integer('user_id')->references('id')->on('users')->nullable();;
+            $table->string('status');
+            $table->integer('user_id')->references('id')->on('users')->nullable();
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@
                         <th>Id Petugas</th>
                         <th>Nama Petugas</th>
                         <th>Buku yang dipinjamkan</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                     </thead>
@@ -42,11 +43,16 @@
                         
                             <td>Belum ada aktivitas</td>
                             @endif
-                                
+                            <td>{{ $p['status'] }}</td>
+                            @if ($p['status'] == 'nonaktif')
                             <td>
-                                <a href="/petugas/edit/{{ $p['id'] }}">Edit</a>
-                                <a href="/petugas/hapus/{{ $p['id'] }}">Hapus</a>
+                                <a class="btn btn-success" href="/petugas/hapus/{{ $p['id'] }}">Aktifkan</a>
                             </td>    
+                            @else
+                            <td>
+                                <a class="btn btn-warning" href="/petugas/hapus/{{ $p['id'] }}">Nonaktifkan</a>
+                            </td>    
+                            @endif
                         @endforeach
                     </tbody>
                   </table>
@@ -75,11 +81,11 @@
                 @csrf
                 <div class="form-group">
                   <label>Pilih User</label>
-                  <select name="nama_petugas" class="form-control select2" style="width: 100%;">
+                  <select name="id" class="form-control select2" style="width: 100%;">
                     @foreach ($users as $u)
                     
                     @if ($u['petugas_id'] == null)
-                    <option value="{{ $u['name'] }}">{{ $u['name'] }}</option>
+                    <option value="{{ $u['id'] }}">{{ $u['name'] }}</option>
                     
                     @else
                     <option disabled="disabled">{{ $u['name'] }} (Sudah jadi Petugas)</option>
